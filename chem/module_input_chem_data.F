@@ -59,6 +59,9 @@ MODULE module_input_chem_data
 !  REAL :: grav = 9.8104
    REAL, PARAMETER :: mwso4 = 96.0576
 
+   real, parameter ::  valinit = 000.0
+   real, parameter ::  vallbc  = 000.0
+
 ! Variables for adaptive time steps...
       TYPE(WRFU_Time), DIMENSION(max_domains) :: last_chem_time
 
@@ -737,7 +740,27 @@ SUBROUTINE input_chem_profile (si_grid)
 !     si_grid%chem(ims:ime,kms:kme,jms:jme,p_so2) = 0.0001
       si_grid%chem(ims:ime,kms:kme,jms:jme,p_co ) = 0.08
    ELSE IF ( si_grid%chem_opt == CHEM_TRACE2 ) THEN
-      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_1 ) = 0.08
+      !si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_1 ) = 0.08
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_1 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_2 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_3 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_4 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_5 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_6 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_7 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_8 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_9 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_10 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_11 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_12 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_13 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_14 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_15 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_16 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_17 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_18 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_19 ) = valinit
+      si_grid%chem(ims:ime,kms:kme,jms:jme,p_TRACER_20 ) = valinit
    ELSE IF ( si_grid%chem_opt == CHEM_VASH ) THEN
       si_grid%chem(ims:ime,kms:kme,jms:jme,1:numgas ) = 0.
    ELSE IF ( si_grid%chem_opt == CHEM_VOLC ) THEN
@@ -1318,7 +1341,65 @@ SUBROUTINE input_chem_profile (si_grid)
        chem = conmin
     end if
     if( nch .eq. p_tracer_1  ) then
-       chem = 0.08
+       !chem = 0.08
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_2  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_3  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_4  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_5  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_6  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_7  ) then
+       chem = vallbc
+   endif
+   if( nch .eq. p_tracer_8  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_9  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_10  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_11  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_12  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_13  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_14  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_15  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_16  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_17  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_18  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_19  ) then
+       chem = vallbc
+    endif
+    if( nch .eq. p_tracer_20  ) then
+       chem = vallbc
     endif
 
   END SUBROUTINE bdy_chem_value_tracer
